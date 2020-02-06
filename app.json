@@ -24,7 +24,10 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses your location to request local weather to determine riding conditions."
+      },
+      "supportsTablet": false
     }
   }
 }
