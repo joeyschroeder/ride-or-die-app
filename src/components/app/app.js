@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
+import PropTypes from 'prop-types';
 
-import React from 'react';
+import React, { Component } from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,10 +11,32 @@ const styles = StyleSheet.create({
   }
 });
 
-export const App = () => {
-  return (
-    <View style={styles.container}>
-      <Text>Open up app.js to start working on your app!</Text>
-    </View>
-  );
-};
+export class App extends Component {
+  static propTypes = {
+    latitude: PropTypes.number,
+    longitude: PropTypes.number,
+    requestLocation: PropTypes.func
+  };
+
+  static defaultProps = {
+    latitude: null,
+    longitude: null,
+    requestLocation: () => {}
+  };
+
+  componentDidMount() {
+    const { requestLocation } = this.props;
+    requestLocation();
+  }
+
+  render() {
+    const { latitude, longitude } = this.props;
+
+    return (
+      <View style={styles.container}>
+        <Text>latitude: {latitude}</Text>
+        <Text>longitude: {longitude}</Text>
+      </View>
+    );
+  }
+}

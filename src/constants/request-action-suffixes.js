@@ -1,0 +1,5 @@
+export const REQUEST_ACTION_SUFFIXES = {
+  FAILURE: 'FAILURE',
+  START: 'START',
+  SUCCESS: 'SUCCESS'
+};
