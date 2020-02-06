@@ -15,18 +15,18 @@ export class App extends Component {
   static propTypes = {
     latitude: PropTypes.number,
     longitude: PropTypes.number,
-    requestLocation: PropTypes.func
+    initializeApp: PropTypes.func
   };
 
   static defaultProps = {
     latitude: null,
     longitude: null,
-    requestLocation: () => {}
+    initializeApp: () => {}
   };
 
   componentDidMount() {
-    const { requestLocation } = this.props;
-    requestLocation();
+    const { initializeApp } = this.props;
+    initializeApp();
   }
 
   render() {
