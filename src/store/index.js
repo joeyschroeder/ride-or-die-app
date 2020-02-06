@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { sampleReducer } from './sample/sample';
+import { locationReducer, REDUCER_PREFIX as LOCATION } from './location/location';
 
 export const reducers = combineReducers({
-  sample: sampleReducer
+  [LOCATION]: locationReducer
 });
