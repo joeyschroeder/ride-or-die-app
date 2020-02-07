@@ -1,7 +1,7 @@
 import { TEMPERATURE_MEASUREMENTS } from '../../constants/temperature-measurements';
 import { createRequestReducer } from '../../util/create-request-reducer/create-request-reducer';
 import { createRequestThunk } from '../../util/create-request-thunk/create-request-thunk';
-import { getLocation } from '../../services/location/location';
+import { getAsyncStorageItem } from '../../services/async-storage/async-storage';
 
 export const REDUCER_PREFIX = 'settings';
 const REQUEST_PREFIX = `${REDUCER_PREFIX}/REQUEST`;
@@ -21,5 +21,6 @@ export const selectSettingsTemperatureMeasurement = state =>
 
 // thunks
 export const requestSettings = () => (dispatch, getState) => {
-  return createRequestThunk(getLocation, REQUEST_PREFIX)(dispatch, getState);
+  const requestFunction = () => getAsyncStorageItem(REDUCER_PREFIX);
+  return createRequestThunk(requestFunction, REQUEST_PREFIX)(dispatch, getState);
 };
