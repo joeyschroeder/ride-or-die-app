@@ -1,8 +1,10 @@
 import { createAction, handleActions } from 'redux-actions';
 
+export const REDUCER_PREFIX = 'sample';
+
 // action types
-const UPDATE = 'sample/UPDATE';
-const RESET = 'sample/RESET';
+const UPDATE = `${REDUCER_PREFIX}/UPDATE`;
+const RESET = `${REDUCER_PREFIX}/RESET`;
 
 // action creators
 export const updateSampleData = createAction(UPDATE);
@@ -23,7 +25,7 @@ export const sampleReducer = handleActions(
 );
 
 // selectors
-export const selectSample = state => state.sample || DEFAULT_STATE;
+export const selectSample = state => state[REDUCER_PREFIX] || DEFAULT_STATE;
 export const selectSampleData = state => selectSample(state).data || DEFAULT_STATE.data;
 
 // thunks

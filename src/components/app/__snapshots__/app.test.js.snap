@@ -11,7 +11,10 @@ exports[`<App /> should render correctly 1`] = `
   }
 >
   <Text>
-    Open up app.js to start working on your app!
+    latitude: 
+  </Text>
+  <Text>
+    longitude: 
   </Text>
 </View>
 `;
