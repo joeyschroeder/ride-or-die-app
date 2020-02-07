@@ -8,5 +8,6 @@ import { combineReducers } from 'redux';
 export const reducers = combineReducers({
   [CURRENT_WEATHER]: currentWeatherReducer,
   [LOCATION]: locationReducer,
-  [REQUEST_TRACKING]: requestTrackingReducer
+  [REQUEST_TRACKING]: requestTrackingReducer,
+  [SETTINGS]: settingsReducer
 });
