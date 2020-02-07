@@ -10,7 +10,7 @@ const REQUEST_PREFIX = `${REDUCER_PREFIX}/REQUEST`;
 
 // action types
 const REQUEST_SUCCESS = createRequestActionSuccessType(REQUEST_PREFIX);
-const UPDATE_TEMPERATURE_MEASUREMENT = `${REDUCER_PREFIX}/UPDATE`;
+const UPDATE_TEMPERATURE_MEASUREMENT = `${REDUCER_PREFIX}/UPDATE_TEMPERATURE_MEASUREMENT`;
 
 // action creators
 export const updateSettingsTemperatureMeasurement = createAction(UPDATE_TEMPERATURE_MEASUREMENT);
