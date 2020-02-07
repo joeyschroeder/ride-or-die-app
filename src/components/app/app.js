@@ -13,15 +13,17 @@ const styles = StyleSheet.create({
 
 export class App extends Component {
   static propTypes = {
+    canRide: PropTypes.bool,
+    initializeApp: PropTypes.func,
     latitude: PropTypes.number,
-    longitude: PropTypes.number,
-    initializeApp: PropTypes.func
+    longitude: PropTypes.number
   };
 
   static defaultProps = {
+    canRide: false,
+    initializeApp: () => {},
     latitude: null,
-    longitude: null,
-    initializeApp: () => {}
+    longitude: null
   };
 
   componentDidMount() {
@@ -30,12 +32,13 @@ export class App extends Component {
   }
 
   render() {
-    const { latitude, longitude } = this.props;
+    const { latitude, longitude, canRide } = this.props;
 
     return (
       <View style={styles.container}>
         <Text>latitude: {latitude}</Text>
         <Text>longitude: {longitude}</Text>
+        <Text>can ride: {canRide.toString()}</Text>
       </View>
     );
   }
