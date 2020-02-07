@@ -1,6 +1,7 @@
+import { selectLocationLatitude, selectLocationLongitude } from '../location/location';
+
 import { createRequestReducer } from '../../util/create-request-reducer/create-request-reducer';
 import { createRequestThunk } from '../../util/create-request-thunk/create-request-thunk';
-import { selectLocationLatitude, selectLocationLongitude } from '../location/location';
 import { getWeatherByGeographicCoordinates } from '../../services/weather/weather';
 
 export const REDUCER_PREFIX = 'current-weather';

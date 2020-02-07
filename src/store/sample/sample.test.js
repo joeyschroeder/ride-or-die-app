@@ -1,5 +1,6 @@
+import { DEFAULT_STATE, resetSampleData, selectSampleData, updateSampleData } from './sample';
+
 import { reducers } from '..';
-import { updateSampleData, selectSampleData, DEFAULT_STATE, resetSampleData } from './sample';
 
 describe('sampleReducer', () => {
   describe('updateSampleData', () => {

@@ -1,4 +1,4 @@
-import { askAsync, LOCATION } from 'expo-permissions';
+import { LOCATION, askAsync } from 'expo-permissions';
 
 export const getLocationPermissions = async () => {
   const response = await askAsync(LOCATION);

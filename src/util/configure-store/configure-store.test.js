@@ -1,7 +1,8 @@
-import { configureStore } from './configure-store';
-import * as reduxModule from 'redux';
 import * as reducersModule from '../../store/index';
+import * as reduxModule from 'redux';
 import * as thunkModule from 'redux-thunk';
+
+import { configureStore } from './configure-store';
 
 describe('configureStore', () => {
   const applyMiddlewareReturn = 'test';

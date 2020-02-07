@@ -1,9 +1,9 @@
 import { AppLoading, registerRootComponent } from 'expo';
 import React, { Component } from 'react';
 
+import { AppConnected } from './components/app/app.connected';
 import { Provider } from 'react-redux';
 import { configureStore } from './util/configure-store/configure-store';
-import { AppConnected } from './components/app/app.connected';
 
 const store = configureStore();
 

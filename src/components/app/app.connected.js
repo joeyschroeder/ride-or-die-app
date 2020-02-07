@@ -1,6 +1,7 @@
-import { connect } from 'react-redux';
-import { App } from './app';
 import { selectLocationLatitude, selectLocationLongitude } from '../../store/location/location';
+
+import { App } from './app';
+import { connect } from 'react-redux';
 import { initializeApp } from '../../thunks/initialize-app/initialize-app';
 
 const mapStateToProps = state => ({

@@ -1,6 +1,6 @@
-import { get } from 'axios';
-import { OPEN_WEATHER_API_ROOT_URL } from '../../constants/open-weather-api-root-url';
 import { OPEN_WEATHER_API_KEY } from '../../constants/open-weather-api-key';
+import { OPEN_WEATHER_API_ROOT_URL } from '../../constants/open-weather-api-root-url';
+import { get } from 'axios';
 import { transformWeatherResponse } from '../../util/transform-weather-response/transform-weather-response';
 
 export const WEATHER_ENDPOINT = `${OPEN_WEATHER_API_ROOT_URL}/weather`;
