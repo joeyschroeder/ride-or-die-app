@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { FONTS } from '../../constants/styles/fonts';
 import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
@@ -8,6 +9,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center'
+  },
+  text: {
+    fontFamily: FONTS.SANS_SERIF.REGULAR
   }
 });
 
@@ -36,9 +40,9 @@ export class App extends Component {
 
     return (
       <View style={styles.container}>
-        <Text>latitude: {latitude}</Text>
-        <Text>longitude: {longitude}</Text>
-        <Text>can ride: {canRide.toString()}</Text>
+        <Text style={styles.text}>latitude: {latitude}</Text>
+        <Text style={styles.text}>longitude: {longitude}</Text>
+        <Text style={styles.text}>can ride: {canRide.toString()}</Text>
       </View>
     );
   }
