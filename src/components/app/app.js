@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
+import { COLORS } from '../../constants/styles/colors';
+import { DIMENSIONS } from '../../constants/dimensions';
 import { FONTS } from '../../constants/styles/fonts';
 import PropTypes from 'prop-types';
+import { ScreenPreloader } from '../screen-preloader/screen-preloader';
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    borderRadius: 10,
     flex: 1,
-    justifyContent: 'center'
+    overflow: 'hidden'
+  },
+  root: {
+    backgroundColor: COLORS.BLACK,
+    flex: 1,
+    height: DIMENSIONS.height,
+    overflow: 'hidden',
+    width: DIMENSIONS.WIDTH
   },
   text: {
     fontFamily: FONTS.SANS_SERIF.REGULAR
@@ -39,10 +49,10 @@ export class App extends Component {
     const { latitude, longitude, canRide } = this.props;
 
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>latitude: {latitude}</Text>
-        <Text style={styles.text}>longitude: {longitude}</Text>
-        <Text style={styles.text}>can ride: {canRide.toString()}</Text>
+      <View style={styles.root}>
+        <View style={styles.container}>
+          <ScreenPreloader />
+        </View>
       </View>
     );
   }
