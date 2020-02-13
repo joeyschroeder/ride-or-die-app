@@ -37,11 +37,12 @@ export const selectRequestTrackingByRequestPrefix = (state, requestPrefix) =>
   selectRequestTracking(state)[requestPrefix] || REQUEST_TRACKING_STATES.UNTRACKED;
 
 export const selectRequestIsRunning = (state, requestPrefix) =>
-  selectRequestTrackingByRequestPrefix(state)[requestPrefix] === REQUEST_TRACKING_STATES.RUNNING;
+  selectRequestTrackingByRequestPrefix(state, requestPrefix) === REQUEST_TRACKING_STATES.RUNNING;
 export const selectRequestHasSucceeded = (state, requestPrefix) =>
-  selectRequestTrackingByRequestPrefix(state)[requestPrefix] === REQUEST_TRACKING_STATES.SUCCESS;
+  selectRequestTrackingByRequestPrefix(state, requestPrefix) === REQUEST_TRACKING_STATES.SUCCESS;
+
 export const selectRequestHasFailed = (state, requestPrefix) =>
-  selectRequestTrackingByRequestPrefix(state)[requestPrefix] === REQUEST_TRACKING_STATES.FAILURE;
+  selectRequestTrackingByRequestPrefix(state, requestPrefix) === REQUEST_TRACKING_STATES.FAILURE;
 
 export const selectRequestsHaveAllSucceeded = (state, requestPrefixes = []) =>
   requestPrefixes.every(requestKey => selectRequestHasSucceeded(state, requestKey));
