@@ -3,7 +3,7 @@ import { createRequestThunk } from '../../util/create-request-thunk/create-reque
 import { getLocation } from '../../services/location/location';
 
 export const REDUCER_PREFIX = 'location';
-const REQUEST_PREFIX = `${REDUCER_PREFIX}/REQUEST`;
+export const REQUEST_PREFIX = `${REDUCER_PREFIX}/REQUEST`;
 
 // default state
 const DEFAULT_STATE = {

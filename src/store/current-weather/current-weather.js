@@ -5,7 +5,7 @@ import { createRequestThunk } from '../../util/create-request-thunk/create-reque
 import { getWeatherByGeographicCoordinates } from '../../services/weather/weather';
 
 export const REDUCER_PREFIX = 'current-weather';
-const REQUEST_PREFIX = `${REDUCER_PREFIX}/REQUEST`;
+export const REQUEST_PREFIX = `${REDUCER_PREFIX}/REQUEST`;
 
 // default state
 const DEFAULT_STATE = {

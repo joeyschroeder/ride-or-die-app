@@ -1,7 +1,7 @@
 import { AppLoading, registerRootComponent } from 'expo';
 import React, { Component } from 'react';
 
-import { AppConnected } from './components/app/app.connected';
+import { App } from './components/app/app';
 import GothamRoundedBold from './fonts/gotham-rounded/gotham-rounded-bold.otf';
 import GothamRoundedBoldItalic from './fonts/gotham-rounded/gotham-rounded-bold-italic.otf';
 import GothamRoundedBook from './fonts/gotham-rounded/gotham-rounded-book.otf';
@@ -50,7 +50,7 @@ export class Main extends Component {
 
     return (
       <Provider store={store}>
-        <AppConnected />
+        <App />
       </Provider>
     );
   }

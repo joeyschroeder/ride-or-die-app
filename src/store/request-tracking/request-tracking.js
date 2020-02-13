@@ -44,6 +44,8 @@ export const selectRequestHasSucceeded = (state, requestPrefix) =>
 export const selectRequestHasFailed = (state, requestPrefix) =>
   selectRequestTrackingByRequestPrefix(state, requestPrefix) === REQUEST_TRACKING_STATES.FAILURE;
 
+export const selectRequestsAreRunning = (state, requestPrefixes = []) =>
+  requestPrefixes.some(requestKey => selectRequestIsRunning(state, requestKey));
 export const selectRequestsHaveAllSucceeded = (state, requestPrefixes = []) =>
   requestPrefixes.every(requestKey => selectRequestHasSucceeded(state, requestKey));
 

@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { COLORS } from '../../constants/styles/colors';
+import { CanRideCurrentWeatherConnected } from '../can-ride-current-weather/can-ride-current-weather.connected';
 import { DIMENSIONS } from '../../constants/dimensions';
-import { FONTS } from '../../constants/styles/fonts';
-import PropTypes from 'prop-types';
-import { ScreenPreloader } from '../screen-preloader/screen-preloader';
+import React from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,41 +17,15 @@ const styles = StyleSheet.create({
     height: DIMENSIONS.height,
     overflow: 'hidden',
     width: DIMENSIONS.WIDTH
-  },
-  text: {
-    fontFamily: FONTS.SANS_SERIF.REGULAR
   }
 });
 
-export class App extends Component {
-  static propTypes = {
-    canRide: PropTypes.bool,
-    initializeApp: PropTypes.func,
-    latitude: PropTypes.number,
-    longitude: PropTypes.number
-  };
-
-  static defaultProps = {
-    canRide: false,
-    initializeApp: () => {},
-    latitude: null,
-    longitude: null
-  };
-
-  componentDidMount() {
-    const { initializeApp } = this.props;
-    initializeApp();
-  }
-
-  render() {
-    const { latitude, longitude, canRide } = this.props;
-
-    return (
-      <View style={styles.root}>
-        <View style={styles.container}>
-          <ScreenPreloader />
-        </View>
+export const App = () => {
+  return (
+    <View style={styles.root}>
+      <View style={styles.container}>
+        <CanRideCurrentWeatherConnected />
       </View>
-    );
-  }
-}
+    </View>
+  );
+};
