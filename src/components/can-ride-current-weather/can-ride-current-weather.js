@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { COLORS } from '../../constants/styles/colors';
-import { FONTS } from '../../constants/styles/fonts';
+import { CanRideMessageConnected } from '../can-ride-message/can-ride-message.connected';
 import PropTypes from 'prop-types';
 import { Screen } from '../screen/screen';
 import { ScreenPreloader } from '../screen-preloader/screen-preloader';
 
 const styles = StyleSheet.create({
-  text: {
-    color: COLORS.WHITE,
-    fontFamily: FONTS.SANS_SERIF.MEDIUM
-  }
+  container: {
+    alignItems: 'flex-start'
+  },
+  message: { flex: 1, justifyContent: 'flex-end' }
 });
 
 export class CanRideCurrentWeather extends Component {
@@ -47,8 +47,10 @@ export class CanRideCurrentWeather extends Component {
         onRefreshPress={requestData}
         showError={showError}
       >
-        <Screen backgroundColor={backgroundColor}>
-          <Text style={styles.text}>Test</Text>
+        <Screen backgroundColor={backgroundColor} style={styles.container}>
+          <View style={styles.message}>
+            <CanRideMessageConnected />
+          </View>
         </Screen>
       </ScreenPreloader>
     );
