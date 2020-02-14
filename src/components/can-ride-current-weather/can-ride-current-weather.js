@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { COLORS } from '../../constants/styles/colors';
 import { CanRideMessageConnected } from '../can-ride-message/can-ride-message.connected';
+import { CanRideWeatherSummaryConnected } from '../can-ride-weather-summary/can-ride-weather-summary.connected';
 import PropTypes from 'prop-types';
 import { Screen } from '../screen/screen';
 import { ScreenPreloader } from '../screen-preloader/screen-preloader';
@@ -48,6 +49,9 @@ export class CanRideCurrentWeather extends Component {
         showError={showError}
       >
         <Screen backgroundColor={backgroundColor} style={styles.container}>
+          <View>
+            <CanRideWeatherSummaryConnected />
+          </View>
           <View style={styles.message}>
             <CanRideMessageConnected />
           </View>
