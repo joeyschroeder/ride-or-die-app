@@ -4,6 +4,7 @@ import { ANIMATION_DURATION } from '../../constants/styles/animation-duration';
 import { AnimatedBackgroundColorView } from 'react-native-animated-background-color-view';
 import { CHILDREN_PROP_TYPE } from '../../constants/children-prop-type';
 import { COLORS } from '../../constants/styles/colors';
+import Constants from 'expo-constants';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { SPACER } from '../../constants/styles/spacer';
@@ -14,7 +15,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     overflow: 'hidden',
-    padding: SPACER
+    paddingBottom: SPACER,
+    paddingHorizontal: SPACER,
+    paddingTop: Constants.statusBarHeight + SPACER
   }
 });
 
