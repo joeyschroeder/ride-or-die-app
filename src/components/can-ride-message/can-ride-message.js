@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
   text: {
     color: COLORS.WHITE,
     fontFamily: FONTS.SANS_SERIF.BOLD,
-    fontSize: scaledValue(72),
+    fontSize: scaledValue(76),
     letterSpacing: scaledValue(-4),
-    lineHeight: scaledLineHeight(65),
+    lineHeight: scaledLineHeight(70),
     paddingTop: scaledValue(6) // this is arbitrary for iOS to make sure line height doesn't cut off tops of letters
   }
 });
