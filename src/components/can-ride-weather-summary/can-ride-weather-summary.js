@@ -13,12 +13,13 @@ import { scaledValue } from '../../util/scaled-value/scaled-value';
 const styles = StyleSheet.create({
   city: {
     color: COLORS.WHITE,
-    fontFamily: FONTS.SANS_SERIF.MEDIUM
+    fontFamily: FONTS.SANS_SERIF.MEDIUM,
+    textTransform: 'uppercase'
   },
   icon: {
     color: COLORS.WHITE,
     fontFamily: FONTS.WEATHER_ICONS,
-    fontSize: scaledValue(50)
+    fontSize: scaledValue(54)
   },
   iconContainer: {
     marginRight: SPACER
@@ -35,17 +36,17 @@ const styles = StyleSheet.create({
 });
 
 export const CanRideWeatherSummary = props => {
-  const { city, temperature, style } = props;
+  const { city, icon, temperature, style } = props;
   const rootStyle = { ...style, ...styles.root };
 
   return (
     <SlideInUpFadeAnimation animateOnUpdate style={rootStyle}>
       <View style={styles.iconContainer}>
-        <Text style={styles.icon}>{'\uF001'}</Text>
+        <Text style={styles.icon}>{icon}</Text>
       </View>
       <View>
         <TemperatureConnected style={styles.temperature} value={temperature} />
-        <Text style={styles.city}>{city.toUpperCase()}</Text>
+        <Text style={styles.city}>{city}</Text>
       </View>
     </SlideInUpFadeAnimation>
   );
@@ -53,12 +54,14 @@ export const CanRideWeatherSummary = props => {
 
 CanRideWeatherSummary.propTypes = {
   city: PropTypes.string,
+  icon: PropTypes.string,
   style: ViewPropTypes.style,
   temperature: PropTypes.number
 };
 
 CanRideWeatherSummary.defaultProps = {
   city: '',
+  icon: '',
   style: undefined,
   temperature: null
 };

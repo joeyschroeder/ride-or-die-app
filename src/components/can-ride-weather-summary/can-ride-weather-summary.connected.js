@@ -3,24 +3,25 @@ import {
   selectCurrentWeatherConditionId,
   selectCurrentWeatherSunrise,
   selectCurrentWeatherSunset,
-  selectCurrentWeatherTemperature
+  selectCurrentWeatherTemperature,
+  selectCurrentWeatherTimeOfDataCalculation
 } from '../../store/current-weather/current-weather';
 
 import { CanRideWeatherSummary } from './can-ride-weather-summary';
 import { connect } from 'react-redux';
-import { getWeatherConditionIconFromCode } from '../../util/get-weather-condition-icon-from-code/get-weather-condition-icon-from-code';
+import { getWeatherIconFromId } from '../../util/get-weather-icon-from-id/get-weather-icon-from-id';
 
 const mapStateToProps = state => {
-  const code = selectCurrentWeatherConditionId(state);
+  const id = selectCurrentWeatherConditionId(state);
   const sunrise = selectCurrentWeatherSunrise(state);
   const sunset = selectCurrentWeatherSunset(state);
+  const timeOfCalculation = selectCurrentWeatherTimeOfDataCalculation(state);
 
-  const icon = getWeatherConditionIconFromCode({ code, sunrise, sunset });
-  console.log('icon: ', icon);
+  const icon = getWeatherIconFromId({ id, sunrise, sunset, time: timeOfCalculation });
 
   return {
-    icon,
     city: selectCurrentWeatherCityName(state),
+    icon,
     temperature: selectCurrentWeatherTemperature(state)
   };
 };
