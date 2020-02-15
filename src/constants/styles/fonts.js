@@ -4,5 +4,6 @@ export const FONTS = {
     MEDIUM: 'gotham-rounded-medium',
     MEDIUM_ITALIC: 'gotham-rounded-medium-italic',
     REGULAR: 'gotham-rounded-book'
-  }
+  },
+  WEATHER_ICONS: 'weather-icons'
 };

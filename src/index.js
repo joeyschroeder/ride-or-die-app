@@ -11,6 +11,7 @@ import GothamRoundedLightItalic from './fonts/gotham-rounded/gotham-rounded-ligh
 import GothamRoundedMedium from './fonts/gotham-rounded/gotham-rounded-medium.otf';
 import GothamRoundedMediumItalic from './fonts/gotham-rounded/gotham-rounded-medium-italic.otf';
 import { Provider } from 'react-redux';
+import WeatherIcons from './fonts/weather-icons/weather-icons-regular.ttf';
 import { configureStore } from './util/configure-store/configure-store';
 import { loadAsync } from 'expo-font';
 
@@ -22,7 +23,8 @@ const FONT_ASSETS = [
   { 'gotham-rounded-light': GothamRoundedLight },
   { 'gotham-rounded-light-italic': GothamRoundedLightItalic },
   { 'gotham-rounded-medium': GothamRoundedMedium },
-  { 'gotham-rounded-medium-italic': GothamRoundedMediumItalic }
+  { 'gotham-rounded-medium-italic': GothamRoundedMediumItalic },
+  { 'weather-icons': WeatherIcons }
 ];
 
 const store = configureStore();
