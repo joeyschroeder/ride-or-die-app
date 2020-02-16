@@ -9,6 +9,7 @@ import { Screen } from '../screen/screen';
 import { SettingsLanguageOptionSelectorConnected } from './settings-language-option-radio-selector/settings-language-option-radio-selector.connected';
 import { SettingsRainToleranceModeRadioSelectorConnected } from './settings-rain-tolerance-mode-radio-selector/settings-rain-tolerance-mode-radio-selector.connected';
 import { SettingsTemperatureMeasurementRadioSelectorConnected } from './settings-temperature-measurement-radio-selector/settings-temperature-measurement-radio-selector.connected';
+import { SettingsTemperatureMinimumSliderSelectorConnected } from './settings-temperature-minimum-slider-selector/settings-temperature-minimum-slider-selector';
 import { scaledLineHeight } from '../../util/scaled-line-height/scaled-line-height';
 import { scaledValue } from '../../util/scaled-value/scaled-value';
 
@@ -21,8 +22,11 @@ const styles = StyleSheet.create({
     borderRadius: BORDER.RADIUS,
     borderWidth: BORDER.WIDTH,
     marginBottom: SPACER,
-    padding: SPACER / 2,
+    padding: SPACER,
     width: '100%'
+  },
+  rainToleranceSelector: {
+    marginBottom: SPACER / 2
   },
   temperatureSelector: {
     marginBottom: SPACER
@@ -30,8 +34,8 @@ const styles = StyleSheet.create({
   text: {
     color: COLORS.WHITE,
     fontFamily: FONTS.SANS_SERIF.BOLD,
-    fontSize: scaledValue(12),
-    lineHeight: scaledLineHeight(12),
+    fontSize: scaledValue(14),
+    lineHeight: scaledLineHeight(14),
     marginBottom: SPACER / 2,
     textAlign: 'left',
     textTransform: 'uppercase'
@@ -44,7 +48,8 @@ export const Settings = () => {
       <SettingsTemperatureMeasurementRadioSelectorConnected style={styles.temperatureSelector} />
       <Text style={styles.text}>Minimum Riding Tolerance</Text>
       <View style={styles.minimumRidingToleranceContainer}>
-        <SettingsRainToleranceModeRadioSelectorConnected />
+        <SettingsRainToleranceModeRadioSelectorConnected style={styles.rainToleranceSelector} />
+        <SettingsTemperatureMinimumSliderSelectorConnected />
       </View>
       <Text style={styles.text}>Language</Text>
       <SettingsLanguageOptionSelectorConnected />

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.TRANSPARENT,
     flexBasis: 0,
     flexGrow: 1,
-    paddingVertical: SPACER / 4,
+    paddingVertical: SPACER / 2,
     zIndex: 1
   },
   text: {

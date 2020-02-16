@@ -15,17 +15,20 @@ const REQUEST_SUCCESS = createRequestActionSuccessType(REQUEST_PREFIX);
 const UPDATE_LANGUAGE_OPTION = `${REDUCER_PREFIX}/UPDATE_LANGUAGE_OPTION`;
 const UPDATE_RAIN_TOLERANCE_MODE = `${REDUCER_PREFIX}/UPDATE_RAIN_TOLERANCE_MODE`;
 const UPDATE_TEMPERATURE_MEASUREMENT = `${REDUCER_PREFIX}/UPDATE_TEMPERATURE_MEASUREMENT`;
+const UPDATE_TEMPERATURE_MINIMUM = `${REDUCER_PREFIX}/UPDATE_TEMPERATURE_MINIMUM`;
 
 // action creators
 export const updateSettingsLanguageOption = createAction(UPDATE_LANGUAGE_OPTION);
 export const updateSettingsRainToleranceMode = createAction(UPDATE_RAIN_TOLERANCE_MODE);
 export const updateSettingsTemperatureMeasurement = createAction(UPDATE_TEMPERATURE_MEASUREMENT);
+export const updateSettingsTemperatureMinimum = createAction(UPDATE_TEMPERATURE_MINIMUM);
 
 // default state
 const DEFAULT_STATE = {
   languageOption: LANGUAGE_OPTIONS.EXPLICIT,
   rainToleranceMode: RAIN_TOLERANCE_MODES.DRY,
-  temperatureMeasurement: TEMPERATURE_MEASUREMENTS.FAHRENHEIT
+  temperatureMeasurement: TEMPERATURE_MEASUREMENTS.FAHRENHEIT,
+  temperatureMinimum: 273.15 // freezing temperature in Kelvin
 };
 
 // reducer
@@ -43,6 +46,10 @@ export const settingsReducer = handleActions(
     [UPDATE_TEMPERATURE_MEASUREMENT]: (state, { payload: temperatureMeasurement }) => ({
       ...state,
       temperatureMeasurement
+    }),
+    [UPDATE_TEMPERATURE_MINIMUM]: (state, { payload: temperatureMinimum }) => ({
+      ...state,
+      temperatureMinimum
     })
   },
   DEFAULT_STATE
@@ -56,6 +63,8 @@ export const selectSettingsRainToleranceMode = state =>
   selectSettings(state).rainToleranceMode || DEFAULT_STATE.rainToleranceMode;
 export const selectSettingsTemperatureMeasurement = state =>
   selectSettings(state).temperatureMeasurement || DEFAULT_STATE.temperatureMeasurement;
+export const selectSettingsTemperatureMinimum = state =>
+  selectSettings(state).temperatureMinimum || DEFAULT_STATE.temperatureMinimum;
 
 // thunks
 export const requestSettings = () => (dispatch, getState) => {
