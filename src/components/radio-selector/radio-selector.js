@@ -111,7 +111,7 @@ export class RadioSelector extends Component {
       outputRange: [interpolatedRange, 0]
     });
 
-    const rootStyles = { ...styles.root, style, borderColor: activeColor };
+    const rootStyles = { ...styles.root, ...style, borderColor: activeColor };
     const optionItems = this.getOptions();
 
     const activeIndicatorStyles = { backgroundColor: activeColor, flex };
