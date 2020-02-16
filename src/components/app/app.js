@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 
+import { AppNavigator } from './app-navigator/app-navigator';
 import { COLORS } from '../../constants/styles/colors';
-import { CanRideCurrentWeatherConnected } from '../can-ride-current-weather/can-ride-current-weather.connected';
 import { DIMENSIONS } from '../../constants/dimensions';
 import React from 'react';
 
@@ -24,7 +24,7 @@ export const App = () => {
   return (
     <View style={styles.root}>
       <View style={styles.container}>
-        <CanRideCurrentWeatherConnected />
+        <AppNavigator />
       </View>
     </View>
   );
