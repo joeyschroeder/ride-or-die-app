@@ -10,6 +10,7 @@ import { SettingsLanguageOptionSelectorConnected } from './settings-language-opt
 import { SettingsRainToleranceModeRadioSelectorConnected } from './settings-rain-tolerance-mode-radio-selector/settings-rain-tolerance-mode-radio-selector.connected';
 import { SettingsTemperatureMeasurementRadioSelectorConnected } from './settings-temperature-measurement-radio-selector/settings-temperature-measurement-radio-selector.connected';
 import { SettingsTemperatureMinimumSliderSelectorConnected } from './settings-temperature-minimum-slider-selector/settings-temperature-minimum-slider-selector';
+import { SettingsWindSpeedMaximumSliderSelectorConnected } from './settings-wind-speed-maximum-slider-selector/settings-wind-speed-maximum-slider-selector';
 import { scaledLineHeight } from '../../util/scaled-line-height/scaled-line-height';
 import { scaledValue } from '../../util/scaled-value/scaled-value';
 
@@ -50,6 +51,7 @@ export const Settings = () => {
       <View style={styles.minimumRidingToleranceContainer}>
         <SettingsRainToleranceModeRadioSelectorConnected style={styles.rainToleranceSelector} />
         <SettingsTemperatureMinimumSliderSelectorConnected />
+        <SettingsWindSpeedMaximumSliderSelectorConnected />
       </View>
       <Text style={styles.text}>Language</Text>
       <SettingsLanguageOptionSelectorConnected />

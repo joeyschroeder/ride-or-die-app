@@ -4,6 +4,7 @@ import { RAIN_TOLERANCE_MODES } from '../../constants/rain-tolerance-modes';
 import { createRequestActionSuccessType } from '../../util/create-request-action-success-type/create-request-action-success-type';
 import { createRequestThunk } from '../../util/create-request-thunk/create-request-thunk';
 import { getAsyncStorageItem } from '../../services/async-storage/async-storage';
+import { getNumberOrDefault } from '../../util/get-number-or-default/get-number-or-default';
 
 export const REDUCER_PREFIX = 'weather-tolerance';
 const REQUEST_PREFIX = `${REDUCER_PREFIX}/REQUEST`;
@@ -51,9 +52,9 @@ export const selectWeatherTolerance = (state = {}) => state[REDUCER_PREFIX] || D
 export const selectWeatherToleranceRainToleranceMode = state =>
   selectWeatherTolerance(state).rainToleranceMode || DEFAULT_STATE.rainToleranceMode;
 export const selectWeatherToleranceTemperatureMinimum = state =>
-  selectWeatherTolerance(state).temperatureMinimum || DEFAULT_STATE.temperatureMinimum;
+  getNumberOrDefault(selectWeatherTolerance(state).temperatureMinimum, DEFAULT_STATE.temperatureMinimum);
 export const selectWeatherToleranceWindSpeedMaximum = state =>
-  selectWeatherTolerance(state).windSpeedMaximum || DEFAULT_STATE.windSpeedMaximum;
+  getNumberOrDefault(selectWeatherTolerance(state).windSpeedMaximum, DEFAULT_STATE.windSpeedMaximum);
 
 // thunks
 export const requestWeatherTolerance = () => (dispatch, getState) => {

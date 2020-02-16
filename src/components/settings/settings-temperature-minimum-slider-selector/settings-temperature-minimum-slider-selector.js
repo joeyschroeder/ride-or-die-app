@@ -1,8 +1,7 @@
 import {
-  selectSettingsTemperatureMeasurement,
-  selectSettingsTemperatureMinimum,
-  updateSettingsTemperatureMinimum
-} from '../../../store/settings/settings';
+  selectWeatherToleranceTemperatureMinimum,
+  updateWeatherToleranceTemperatureMinimum
+} from '../../../store/weather-tolerance/weather-tolerance';
 
 import { COLORS } from '../../../constants/styles/colors';
 import Color from 'color';
@@ -11,9 +10,10 @@ import { TEMPERATURE_MEASUREMENTS } from '../../../constants/temperature-measure
 import { connect } from 'react-redux';
 import { convertKelvinToCelsius } from '../../../util/convert-kelvin-to-celsius/convert-kelvin-to-celsius';
 import { convertKelvinToFahrenheit } from '../../../util/convert-kelvin-to-fahrenheit/convert-kelvin-to-fahrenheit';
+import { selectSettingsTemperatureMeasurement } from '../../../store/settings/settings';
 
 const mapStateToProps = state => {
-  const value = selectSettingsTemperatureMinimum(state);
+  const value = selectWeatherToleranceTemperatureMinimum(state);
 
   // TODO: this logic is duplicated in the temperature.connected.js
   // Perhaps it could be refactored to a single location
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  onChange: updateSettingsTemperatureMinimum
+  onChange: updateWeatherToleranceTemperatureMinimum
 };
 
 export const SettingsTemperatureMinimumSliderSelectorConnected = connect(

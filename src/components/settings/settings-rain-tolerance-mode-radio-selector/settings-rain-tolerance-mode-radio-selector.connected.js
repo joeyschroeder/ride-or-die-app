@@ -1,4 +1,7 @@
-import { selectSettingsRainToleranceMode, updateSettingsRainToleranceMode } from '../../../store/settings/settings';
+import {
+  selectWeatherToleranceRainToleranceMode,
+  updateWeatherToleranceRainToleranceMode
+} from '../../../store/weather-tolerance/weather-tolerance';
 
 import { COLORS } from '../../../constants/styles/colors';
 import { RAIN_TOLERANCE_MODES } from '../../../constants/rain-tolerance-modes';
@@ -10,11 +13,11 @@ const OPTIONS = Object.keys(RAIN_TOLERANCE_MODES).map(key => RAIN_TOLERANCE_MODE
 const mapStateToProps = state => ({
   options: OPTIONS,
   textColor: COLORS.TWITTER,
-  value: selectSettingsRainToleranceMode(state)
+  value: selectWeatherToleranceRainToleranceMode(state)
 });
 
 const mapDispatchToProps = {
-  onToggle: updateSettingsRainToleranceMode
+  onToggle: updateWeatherToleranceRainToleranceMode
 };
 
 export const SettingsRainToleranceModeRadioSelectorConnected = connect(
