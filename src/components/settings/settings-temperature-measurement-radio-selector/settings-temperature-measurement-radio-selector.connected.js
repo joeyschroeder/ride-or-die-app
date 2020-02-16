@@ -3,10 +3,16 @@ import {
   updateSettingsTemperatureMeasurement
 } from '../../../store/settings/settings';
 
-import { SettingsTemperatureMeasurementSelector } from './settings-temperature-measurement-radio-selector';
+import { COLORS } from '../../../constants/styles/colors';
+import { RadioSelector } from '../../radio-selector/radio-selector';
+import { TEMPERATURE_MEASUREMENTS } from '../../../constants/temperature-measurements';
 import { connect } from 'react-redux';
 
+const OPTIONS = Object.keys(TEMPERATURE_MEASUREMENTS).map(key => TEMPERATURE_MEASUREMENTS[key]);
+
 const mapStateToProps = state => ({
+  options: OPTIONS,
+  textColor: COLORS.TWITTER,
   value: selectSettingsTemperatureMeasurement(state)
 });
 
@@ -14,7 +20,7 @@ const mapDispatchToProps = {
   onToggle: updateSettingsTemperatureMeasurement
 };
 
-export const SettingsTemperatureMeasurementSelectorConnected = connect(
+export const SettingsTemperatureMeasurementRadioSelectorConnected = connect(
   mapStateToProps,
   mapDispatchToProps
-)(SettingsTemperatureMeasurementSelector);
+)(RadioSelector);
