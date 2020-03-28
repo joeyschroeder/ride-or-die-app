@@ -37,12 +37,11 @@ const styles = StyleSheet.create({
   }
 });
 
+const iconColor = COLORS.WHITE.hex();
+const iconSize = scaledValue(144);
+
 export const ScreenPreloaderError = props => {
   const { buttonLabel, message, onRefreshPress } = props;
-
-  const iconColor = COLORS.WHITE.hex();
-  const iconSize = scaledValue(144);
-
   const showButton = Boolean(onRefreshPress);
 
   return (
