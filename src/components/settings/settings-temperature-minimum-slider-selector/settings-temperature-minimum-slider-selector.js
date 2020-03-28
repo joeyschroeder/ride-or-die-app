@@ -1,7 +1,7 @@
 import {
-  selectWeatherToleranceTemperatureMinimum,
-  updateWeatherToleranceTemperatureMinimum
-} from '../../../store/weather-tolerance/weather-tolerance';
+  selectWeatherToleranceEditableTemperatureMinimum,
+  updateWeatherToleranceEditableTemperatureMinimum
+} from '../../../store/weather-tolerance-editable/weather-tolerance-editable';
 
 import { COLORS } from '../../../constants/styles/colors';
 import Color from 'color';
@@ -13,7 +13,7 @@ import { convertKelvinToFahrenheit } from '../../../util/convert-kelvin-to-fahre
 import { selectSettingsTemperatureMeasurement } from '../../../store/settings/settings';
 
 const mapStateToProps = state => {
-  const value = selectWeatherToleranceTemperatureMinimum(state);
+  const value = selectWeatherToleranceEditableTemperatureMinimum(state);
 
   // TODO: this logic is duplicated in the temperature.connected.js
   // Perhaps it could be refactored to a single location
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  onChange: updateWeatherToleranceTemperatureMinimum
+  onChange: updateWeatherToleranceEditableTemperatureMinimum
 };
 
 export const SettingsTemperatureMinimumSliderSelectorConnected = connect(

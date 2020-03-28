@@ -5,6 +5,10 @@ import { REDUCER_PREFIX as SAMPLE, sampleReducer } from './sample/sample';
 import { REDUCER_PREFIX as SETTINGS, settingsReducer } from './settings/settings';
 import { REDUCER_PREFIX as SETTINGS_EDITABLE, settingsEditableReducer } from './settings-editable/settings-editable';
 import { REDUCER_PREFIX as WEATHER_TOLERANCE, weatherToleranceReducer } from './weather-tolerance/weather-tolerance';
+import {
+  REDUCER_PREFIX as WEATHER_TOLERANCE_EDITABLE,
+  weatherToleranceEditableReducer
+} from './weather-tolerance-editable/weather-tolerance-editable';
 
 import { combineReducers } from 'redux';
 
@@ -15,5 +19,6 @@ export const reducers = combineReducers({
   [SAMPLE]: sampleReducer,
   [SETTINGS]: settingsReducer,
   [SETTINGS_EDITABLE]: settingsEditableReducer,
-  [WEATHER_TOLERANCE]: weatherToleranceReducer
+  [WEATHER_TOLERANCE]: weatherToleranceReducer,
+  [WEATHER_TOLERANCE_EDITABLE]: weatherToleranceEditableReducer
 });

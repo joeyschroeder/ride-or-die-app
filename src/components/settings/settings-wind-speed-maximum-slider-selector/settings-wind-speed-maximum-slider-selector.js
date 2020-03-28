@@ -1,7 +1,7 @@
 import {
-  selectWeatherToleranceWindSpeedMaximum,
-  updateWeatherToleranceWindSpeedMaximum
-} from '../../../store/weather-tolerance/weather-tolerance';
+  selectWeatherToleranceEditableWindSpeedMaximum,
+  updateWeatherToleranceEditableWindSpeedMaximum
+} from '../../../store/weather-tolerance-editable/weather-tolerance-editable';
 
 import { COLORS } from '../../../constants/styles/colors';
 import Color from 'color';
@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { convertMetersPerSecondToMilesPerHour } from '../../../util/convert-meters-per-second-to-miles-per-hour/convert-meters-per-second-to-miles-per-hour';
 
 const mapStateToProps = state => {
-  const value = selectWeatherToleranceWindSpeedMaximum(state);
+  const value = selectWeatherToleranceEditableWindSpeedMaximum(state);
 
   const convertedValue = convertMetersPerSecondToMilesPerHour(value);
   const roundedValue = Math.round(convertedValue);
@@ -28,7 +28,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  onChange: updateWeatherToleranceWindSpeedMaximum
+  onChange: updateWeatherToleranceEditableWindSpeedMaximum
 };
 
 export const SettingsWindSpeedMaximumSliderSelectorConnected = connect(
