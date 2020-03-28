@@ -5,10 +5,7 @@ export const getAsyncStorageItem = async key => {
 
   const response = await AsyncStorage.getItem(key);
   if (!response) return undefined;
-
-  const { data } = response;
-
-  return JSON.parse(data);
+  return JSON.parse(response);
 };
 
 export const setAsyncStorageItem = (key = '', value = '') => {
