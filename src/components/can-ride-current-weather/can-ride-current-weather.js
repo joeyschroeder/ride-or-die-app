@@ -8,17 +8,26 @@ import PropTypes from 'prop-types';
 import { Screen } from '../screen/screen';
 import { ScreenPreloader } from '../screen-preloader/screen-preloader';
 
+import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import { IconButton } from '../icon-button/icon-button';
+
 const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-start'
   },
-  message: { flex: 1, justifyContent: 'flex-end' }
+  message: { flex: 1, justifyContent: 'flex-end' },
+  navigation: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    width: '100%'
+  }
 });
 
 export class CanRideCurrentWeather extends Component {
   static propTypes = {
     backgroundColor: PropTypes.object,
     isLoading: PropTypes.bool,
+    onSettingsPress: PropTypes.func,
     requestData: PropTypes.func,
     showError: PropTypes.bool
   };
@@ -26,6 +35,7 @@ export class CanRideCurrentWeather extends Component {
   static defaultProps = {
     backgroundColor: COLORS.DANGER,
     isLoading: false,
+    onSettingsPress: undefined,
     requestData: undefined,
     showError: false
   };
@@ -38,7 +48,7 @@ export class CanRideCurrentWeather extends Component {
   }
 
   render() {
-    const { isLoading, requestData, showError, backgroundColor } = this.props;
+    const { backgroundColor, isLoading, onSettingsPress, requestData, showError } = this.props;
 
     return (
       <ScreenPreloader
@@ -54,6 +64,9 @@ export class CanRideCurrentWeather extends Component {
           </View>
           <View style={styles.message}>
             <CanRideMessageConnected />
+          </View>
+          <View style={styles.navigation}>
+            <IconButton icon={faSlidersH} onPress={onSettingsPress} />
           </View>
         </Screen>
       </ScreenPreloader>

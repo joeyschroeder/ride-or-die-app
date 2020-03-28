@@ -10,6 +10,7 @@ import { REQUEST_PREFIX as LOCATION_REQUEST_PREFIX } from '../../store/location/
 import { connect } from 'react-redux';
 import { initializeApp } from '../../thunks/initialize-app/initialize-app';
 import { selectCanRide } from '../../selectors/select-can-ride/select-can-ride';
+import { APP_ROUTE_NAMES } from '../../constants/app-route-names';
 
 const mapStateToProps = state => {
   const isLoading = selectRequestsAreRunning(state, [CURRENT_WEATHER_REQUEST_PREFIX, LOCATION_REQUEST_PREFIX]);
@@ -27,8 +28,14 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {
-  requestData: initializeApp
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { navigation } = ownProps;
+  const { navigate } = navigation;
+
+  return {
+    onSettingsPress: () => navigate(APP_ROUTE_NAMES.SETTINGS),
+    requestData: () => dispatch(initializeApp())
+  };
 };
 
 export const CanRideCurrentWeatherConnected = connect(mapStateToProps, mapDispatchToProps)(CanRideCurrentWeather);
