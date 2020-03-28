@@ -31,7 +31,7 @@ const store = configureStore();
 
 export class Main extends Component {
   static loadFontAssets() {
-    const fontPromises = FONT_ASSETS.map(font => loadAsync(font));
+    const fontPromises = FONT_ASSETS.map(loadAsync);
     return Promise.all([...fontPromises]);
   }
 
