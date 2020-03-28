@@ -1,4 +1,7 @@
-import { selectSettingsLanguageOption, updateSettingsLanguageOption } from '../../../store/settings/settings';
+import {
+  selectSettingsEditableLanguageOption,
+  updateSettingsEditableLanguageOption
+} from '../../../store/settings-editable/settings-editable';
 
 import { COLORS } from '../../../constants/styles/colors';
 import { LANGUAGE_OPTIONS } from '../../../constants/language-options';
@@ -10,11 +13,11 @@ const OPTIONS = Object.keys(LANGUAGE_OPTIONS).map(key => LANGUAGE_OPTIONS[key]);
 const mapStateToProps = state => ({
   options: OPTIONS,
   textColor: COLORS.TWITTER,
-  value: selectSettingsLanguageOption(state)
+  value: selectSettingsEditableLanguageOption(state)
 });
 
 const mapDispatchToProps = {
-  onToggle: updateSettingsLanguageOption
+  onToggle: updateSettingsEditableLanguageOption
 };
 
 export const SettingsLanguageOptionSelectorConnected = connect(mapStateToProps, mapDispatchToProps)(RadioSelector);

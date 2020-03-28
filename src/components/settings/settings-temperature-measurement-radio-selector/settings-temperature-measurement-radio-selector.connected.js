@@ -1,7 +1,7 @@
 import {
-  selectSettingsTemperatureMeasurement,
-  updateSettingsTemperatureMeasurement
-} from '../../../store/settings/settings';
+  selectSettingsEditableTemperatureMeasurement,
+  updateSettingsEditableTemperatureMeasurement
+} from '../../../store/settings-editable/settings-editable';
 
 import { COLORS } from '../../../constants/styles/colors';
 import { RadioSelector } from '../../radio-selector/radio-selector';
@@ -13,11 +13,11 @@ const OPTIONS = Object.keys(TEMPERATURE_MEASUREMENTS).map(key => TEMPERATURE_MEA
 const mapStateToProps = state => ({
   options: OPTIONS,
   textColor: COLORS.TWITTER,
-  value: selectSettingsTemperatureMeasurement(state)
+  value: selectSettingsEditableTemperatureMeasurement(state)
 });
 
 const mapDispatchToProps = {
-  onToggle: updateSettingsTemperatureMeasurement
+  onToggle: updateSettingsEditableTemperatureMeasurement
 };
 
 export const SettingsTemperatureMeasurementRadioSelectorConnected = connect(
