@@ -3,6 +3,7 @@ import { requestCurrentWeather } from '../../store/current-weather/current-weath
 import { requestLocation } from '../../store/location/location';
 import { requestSettings } from '../../store/settings/settings';
 import { requestWeatherTolerance } from '../../store/weather-tolerance/weather-tolerance';
+import { resetSettingsEditable as syncSettingsEditableWithSavedSettings } from '../reset-settings-editable/reset-settings-editable';
 
 export const initializeApp = () => async dispatch => {
   const hasLocationPermissions = await getLocationPermissions();
@@ -10,5 +11,7 @@ export const initializeApp = () => async dispatch => {
   if (!hasLocationPermissions) throw new Error('Location permission not granted.');
 
   await Promise.all([dispatch(requestLocation()), dispatch(requestSettings()), dispatch(requestWeatherTolerance())]);
+
+  await dispatch(syncSettingsEditableWithSavedSettings());
   await dispatch(requestCurrentWeather());
 };
